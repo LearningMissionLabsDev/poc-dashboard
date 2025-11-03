@@ -9,6 +9,7 @@ import {
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 import { useNavigate } from "react-router-dom";
 import theme from "../theme";
+import type {} from '@mui/x-data-grid/themeAugmentation';
 
 const API_URL = "https://uai.plat.ai/webhook/apps";
 
@@ -68,7 +69,7 @@ export default function ApplicationList() {
 
   // ✅ Table columns
   const columns: GridColDef[] = [
-    { field: "application_id", headerName: "Application ID", flex: 1 },
+    { field: "application_id", headerName: "Application ID", flex: 1, },
     { field: "borrower_id", headerName: "Borrower", flex: 1.3 },
     {
       field: "updated_at",
@@ -104,41 +105,6 @@ export default function ApplicationList() {
 
       <Divider sx={{ mb: 3 }} />
 
-      {/* ✅ Search Field */}
-      <TextField
-        placeholder="Enter Application ID (e.g. A-100001)"
-        value={searchId}
-        onChange={(e) => setSearchId(e.target.value)}
-        sx={{
-          ...theme.typography.miniBody,
-          fontFamily: "Poppins,sans-serif",
-          mb: 6,
-          width: 300,
-          height: 20, // Keep the height
-          "& .MuiOutlinedInput-root": {
-            borderRadius: "8px",
-            backgroundColor: "#FFFFFF",
-            color: "#111827",
-            "& fieldset": {
-              borderColor: "#D1D5DB",
-            },
-            "&:hover fieldset": {
-              borderColor: "#C8D1D7",
-            },
-            "&.Mui-focused fieldset": {
-              borderColor: "#C8D1D7",
-            }
-          },
-          "& .MuiOutlinedInput-input": {
-            padding: "14px 14px",
-            fontSize: "14px",
-          },
-          "& .MuiInputLabel-root.Mui-focused": {
-            color: "#C8D1D7 !important",
-          },
-        }}
-      />
-
       {/* === Data Grid === */}
       <DataGrid
         rows={filteredRows}
@@ -148,6 +114,7 @@ export default function ApplicationList() {
         slots={{
           noRowsOverlay: CustomNoRowsOverlay,
         }}
+        showToolbar
         onRowClick={(params) => navigate(`/applications/${params.row.application_id}`)}
         sx={{
           border: "none",
@@ -210,17 +177,7 @@ export default function ApplicationList() {
             fontFamily: "Poppins,sans-serif !important",
             color: "#000000 !important",
           },
-          "& .MuiMenuItem-root": {
-            ...theme.typography.miniBody,
-            fontFamily: "Poppins, sans-serif !important",
-            minHeight: "28px !important",
-            paddingTop: "4px !important",
-            paddingBottom: "4px !important",
-            paddingLeft: "14px !important",
-            paddingRight: "14px !important",
-            color: "#000",
-          },
-
+         
           "& .MuiMenuItem-root.Mui-selected": {
             backgroundColor: "#E5ECF7 !important",
             color: "#000 !important",

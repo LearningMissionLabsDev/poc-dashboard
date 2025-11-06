@@ -3,13 +3,11 @@ import {
   Box,
   Typography,
   Divider,
-  TextField,
   useTheme,
 } from "@mui/material";
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 import { useNavigate } from "react-router-dom";
 import theme from "../theme";
-import type {} from '@mui/x-data-grid/themeAugmentation';
 
 const API_URL = "https://uai.plat.ai/webhook/apps";
 
@@ -86,8 +84,8 @@ export default function ApplicationList() {
   return (
     <Box
       sx={{
-        px: { xs: 2, sm: 3, md: 3 },
-        pt: 4.5,
+        px: 4,
+        pt: 2,
         pb: 2,
       }}
     >
@@ -97,7 +95,7 @@ export default function ApplicationList() {
           ...theme.typography.h5,
           fontWeight: 500,
           color: "#1A253B",
-          mb: 2,
+          mb: 1,
           letterSpacing: "0.3px",
         }}
       >
@@ -118,7 +116,10 @@ export default function ApplicationList() {
         showToolbar
         onRowClick={(params) => navigate(`/applications/${params.row.application_id}`)}
         sx={{
-          border: "none",
+          width: "100%",
+          minWidth: 0,
+          overflowX: "auto",
+          boxSizing: "border-box",
           // ✅ Header Styles
           "& .MuiDataGrid-columnHeaders": {
             ...theme.typography.body2,
@@ -164,12 +165,8 @@ export default function ApplicationList() {
             fontFamily: "Poppins,sans-serif",
             display: "flex",
             alignItems: "center",
-            lineHeight: "normal",
-            color: "#000000 !important",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
-            maxWidth: "100%",
+            minWidth: 0,
+            padding: "0 8px",
           },
 
           "& .MuiDataGrid-footerContainer, & .MuiTablePagination-root, & .MuiTablePagination-toolbar, & .MuiTablePagination-displayedRows, & .MuiTablePagination-selectLabel, & .MuiTablePagination-select, & .MuiTablePagination-menuItem": {
@@ -177,7 +174,7 @@ export default function ApplicationList() {
             fontFamily: "Poppins,sans-serif !important",
             color: "#000000 !important",
           },
-         
+
           "& .MuiMenuItem-root.Mui-selected": {
             backgroundColor: "#E5ECF7 !important",
             color: "#000 !important",

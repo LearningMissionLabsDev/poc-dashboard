@@ -108,7 +108,7 @@ export default function Sidebar({ open, onToggle }: SidebarProps) {
             <Avatar sx={{ bgcolor: "#3B2ED0" }}>AA</Avatar>
             <Box lineHeight={1}>
               <Typography
-                sx={{ ...theme.typography.body2, fontWeight: 500, lineHeight: 1.1 }}
+                sx={{ ...theme.typography.body1, fontWeight: 500, lineHeight: 1.1 }}
                 color="#1a1a1aff"
               >
                 Hello, admin
@@ -194,8 +194,9 @@ export default function Sidebar({ open, onToggle }: SidebarProps) {
                       slotProps={{
                         primary: {
                           sx: {
-                            ...theme.typography.body2,
-                            fontWeight: 500,
+                            ...theme.typography.body1,
+                            fontFamily: "Poppins,sans-serif",
+                            fontWeight: 400,
                             color: isActive ? "#fff" : "text.primary",
                           },
                         },
@@ -244,8 +245,9 @@ export default function Sidebar({ open, onToggle }: SidebarProps) {
                 slotProps={{
                   primary: {
                     sx: {
-                      ...theme.typography.body2,
-                      fontWeight: 500,
+                      ...theme.typography.body1,
+                      fontFamily: "Poppins,sans-serif",
+                      fontWeight: 400,
                       color: "text.primary",
                     },
                   },
@@ -286,8 +288,9 @@ export default function Sidebar({ open, onToggle }: SidebarProps) {
                 slotProps={{
                   primary: {
                     sx: {
-                      ...theme.typography.body2,
-                      fontWeight: 500,
+                      ...theme.typography.body1,
+                      fontFamily: "Poppins,sans-serif",
+                      fontWeight: 400,
                       color: "text.primary",
                     },
                   },

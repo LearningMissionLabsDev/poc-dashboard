@@ -130,7 +130,7 @@ export default function ApplicationDetails() {
             label={label}
             disableRipple
            sx={{
-     ...theme.typography.miniBody,
+     ...theme.typography.body2,
      fontFamily: "Poppins,sans-serif",
      fontWeight: 500,
      textTransform: "none",

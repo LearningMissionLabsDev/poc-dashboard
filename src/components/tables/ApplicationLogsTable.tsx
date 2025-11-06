@@ -182,7 +182,7 @@ export default function ApplicationLogsTable({ data }: any) {
           onClick={toggleFilters}
           startIcon={<Filter size={18} />}
           sx={{
-            ...theme.typography.miniBody,
+            ...theme.typography.body2,
             fontFamily: "Poppins,sans-serif",
             fontWeight: 400,
             borderRadius: "12px",
@@ -241,7 +241,7 @@ export default function ApplicationLogsTable({ data }: any) {
                   disableRipple
                   value={option.key}
                   sx={{
-                    ...theme.typography.miniBody,
+                    ...theme.typography.body2,
                     fontFamily: "Poppins,sans-serif",
                     fontWeight: 400,
                     textTransform: "none",
@@ -272,23 +272,23 @@ export default function ApplicationLogsTable({ data }: any) {
               InputLabelProps={{ shrink: true }}
               sx={{
                 "& .MuiInputBase-root": {
-                  ...theme.typography.miniBody,
+                  ...theme.typography.body2,
                   fontFamily: "Poppins, sans-serif !important",
                   borderRadius: "8px",
                   backgroundColor: "#FFFFFF",
-                  height: "34px", // optional: reduce height if needed
+                  height: "41px", // optional: reduce height if needed
                 },
                 "& .MuiInputBase-input": {
-                  ...theme.typography.miniBody,
+                  ...theme.typography.body2,
                   fontFamily: "Poppins, sans-serif !important",
                   padding: "6px 10px !important", // reduce extra padding
                 },
                 "& .MuiInputLabel-root": {
-                  ...theme.typography.miniBody,
+                  ...theme.typography.body2,
                   fontFamily: "Poppins, sans-serif !important",
                 },
                 "& input::placeholder": {
-                  ...theme.typography.miniBody,
+                  ...theme.typography.body2,
                   fontFamily: "Poppins, sans-serif !important",
                   opacity: 0.7,
                 },
@@ -306,23 +306,23 @@ export default function ApplicationLogsTable({ data }: any) {
               InputLabelProps={{ shrink: true }}
               sx={{
                 "& .MuiInputBase-root": {
-                  ...theme.typography.miniBody,
+                  ...theme.typography.body2,
                   fontFamily: "Poppins, sans-serif !important",
                   borderRadius: "8px",
                   backgroundColor: "#FFFFFF",
-                  height: "34px",
+                  height: "41px",
                 },
                 "& .MuiInputBase-input": {
-                  ...theme.typography.miniBody,
+                  ...theme.typography.body2,
                   fontFamily: "Poppins, sans-serif !important",
                   padding: "6px 10px !important",
                 },
                 "& .MuiInputLabel-root": {
-                  ...theme.typography.miniBody,
+                  ...theme.typography.body2,
                   fontFamily: "Poppins, sans-serif !important",
                 },
                 "& input::placeholder": {
-                  ...theme.typography.miniBody,
+                  ...theme.typography.body2,
                   fontFamily: "Poppins, sans-serif !important",
                   opacity: 0.7,
                 },
@@ -348,7 +348,7 @@ export default function ApplicationLogsTable({ data }: any) {
         >
           <Typography
             sx={{
-              ...theme.typography.miniBody,
+              ...theme.typography.body2,
               fontFamily: "Poppins,sans-serif",
               fontWeight: 500,
               color: "#64748B",
@@ -365,7 +365,7 @@ export default function ApplicationLogsTable({ data }: any) {
             key={idx}
             sx={{
               display: "grid",
-              gridTemplateColumns: "140px 1fr",
+              gridTemplateColumns: {md: "160px 1fr", lg: "165px 1fr", xl: "180px 1fr"},
               alignItems: "flex-start",
               gap: 1,
               mb: 2,
@@ -374,7 +374,7 @@ export default function ApplicationLogsTable({ data }: any) {
             {/* ✅ Timestamp OUTSIDE the accordion */}
             <Typography
               sx={{
-                ...theme.typography.miniBody,
+                ...theme.typography.body2,
                 fontFamily: "Poppins,sans-serif",
                 fontWeight: 400,
                 color: "#000000CC",
@@ -411,7 +411,7 @@ export default function ApplicationLogsTable({ data }: any) {
                   {getEventIcon(log)}
                   <Box>
                     <Typography sx={{
-                      ...theme.typography.miniBody,
+                      ...theme.typography.body2,
                       fontFamily: "Poppins,sans-serif",
                       fontWeight: 600,
                       color: "#000000CC",
@@ -419,7 +419,7 @@ export default function ApplicationLogsTable({ data }: any) {
                       {log.event}
                     </Typography>
                     <Typography sx={{
-                      ...theme.typography.miniBody,
+                      ...theme.typography.body2,
                       fontFamily: "Poppins,sans-serif",
                       fontWeight: 400,
                       color: "#000000CC",
@@ -449,9 +449,9 @@ export default function ApplicationLogsTable({ data }: any) {
                         wrapLongLines
                         style={atomOneLight}
                         customStyle={{
+                          ...theme.typography.body1,
                           borderRadius: 8,
                           padding: "16px",
-                          fontSize: "13px",
                           maxHeight: 350,
                           margin: 0,
                           overflow: "auto",

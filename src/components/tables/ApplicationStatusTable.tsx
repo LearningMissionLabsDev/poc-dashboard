@@ -26,7 +26,6 @@ import {
 } from "lucide-react";
 
 export default function ApplicationStatusTable({ data }: any) {
-  const ttt = data.application ?? {};
   const borrower = data.borrower ?? {};
   const property = data.property ?? {};
   const documents = data.documents ?? {}
@@ -42,7 +41,6 @@ export default function ApplicationStatusTable({ data }: any) {
       }
     ]
   };
-  // console.log(ttt)
   const zillow = property?.zillow ?? {
     area: 0,
     address: "",
@@ -97,7 +95,7 @@ export default function ApplicationStatusTable({ data }: any) {
         confidence:
           facta?.status === "processing"
             ? "processing"
-            :  `${facta?.score}%`,
+            : `${facta?.score}%`,
         details: [
           ...(facta.questions ?? []).map((q: any) => {
             const userAnswer = q.answers.find((a: any) => a.id === q.user_answer_id);
@@ -178,7 +176,7 @@ export default function ApplicationStatusTable({ data }: any) {
         description: rentCast?.status,
         price: formatCurrency(rentCast.price),
         chips: [
-            {
+          {
             icon: <MapPin size={16} style={{ color: "#0369A1" }} />,
             label: `${rentCast.formattedAddress ?? ""}, ${property.address?.city ?? ""}`,
             sx: { backgroundColor: "#E0F2FE", color: "#0369A1" },
@@ -189,13 +187,13 @@ export default function ApplicationStatusTable({ data }: any) {
             sx: { backgroundColor: "#F1F5F9", color: "#475569" },
           },
           {
-            icon: <BedDouble size={16} style={{ color: "#6B21A8" }} />,
-            label: `${rentCast.bedrooms ?? "?"} bedrooms`,
+            icon: <Bath size={16} style={{ color: "#6B21A8" }} />,
+            label: `${rentCast.bathrooms ?? "?"} bathrooms`,
             sx: { backgroundColor: "#F3E8FF", color: "#6B21A8" },
           },
           {
-            icon: <Bath size={16} style={{ color: "#6B21A8" }} />,
-            label: `${rentCast.bathrooms ?? "?"} bathrooms`,
+            icon: <BedDouble size={16} style={{ color: "#6B21A8" }} />,
+            label: `${rentCast.bedrooms ?? "?"} bedrooms`,
             sx: { backgroundColor: "#F3E8FF", color: "#6B21A8" },
           },
           {
@@ -214,13 +212,12 @@ export default function ApplicationStatusTable({ data }: any) {
 
   const documentSection = {
     title: "Documents",
-    
+
     items: docs.map((doc: any) => ({
-    confidence: `${
-      doc?.status === "completed"
+      confidence: `${doc?.status === "completed"
         ? `${doc?.form_analysis?.[0]?.form_authenticity?.score ?? 100}%`
         : doc?.status
-    }`,
+        }`,
       icon: <FileText size={28} color="#5B21B6" />,
       title: doc.type || doc.name,
       subtitle: doc.name, // plain text shown below title
@@ -286,7 +283,7 @@ export default function ApplicationStatusTable({ data }: any) {
             >
               <Typography
                 sx={{
-                  ...theme.typography.miniBody,
+                  ...theme.typography.body2,
                   fontFamily: "Poppins,sans-serif",
                   fontWeight: 600,
                   color: "#000000",
@@ -333,7 +330,7 @@ export default function ApplicationStatusTable({ data }: any) {
                       <Box>
                         <Typography
                           sx={{
-                            ...theme.typography.miniBody,
+                            ...theme.typography.body2,
                             fontFamily: "Poppins,sans-serif",
                             fontWeight: 600,
                             color: "#000000CC",
@@ -343,7 +340,7 @@ export default function ApplicationStatusTable({ data }: any) {
                         </Typography>
                         <Typography
                           sx={{
-                            ...theme.typography.miniBody,
+                            ...theme.typography.body2,
                             fontFamily: "Poppins,sans-serif",
                             fontWeight: 400,
                             color: "#000000CC",
@@ -361,7 +358,7 @@ export default function ApplicationStatusTable({ data }: any) {
                         label={item.price}
                         size="small"
                         sx={{
-                          ...theme.typography.miniBody,
+                          ...theme.typography.body2,
                           fontFamily: "Poppins,sans-serif",
                           backgroundColor: getPropertyConfidenceColor(
                             item.price === formatCurrency(zillowEstimate)
@@ -377,6 +374,10 @@ export default function ApplicationStatusTable({ data }: any) {
                               : rentEstimate
                           ).text
                             }`,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          lineHeight: 1.1,
                         }}
                       />
                     ) : (
@@ -384,13 +385,17 @@ export default function ApplicationStatusTable({ data }: any) {
                         label={item.confidence}
                         size="small"
                         sx={{
-                          ...theme.typography.miniBody,
+                          ...theme.typography.body2,
                           fontFamily: "Poppins,sans-serif",
                           backgroundColor: colors.bg,
                           border: `1px solid ${colors.text}`,
                           color: "#000000CC",
                           fontWeight: 400,
                           borderRadius: "6px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          lineHeight: 1.1,
                         }}
                       />
                     )}
@@ -409,7 +414,7 @@ export default function ApplicationStatusTable({ data }: any) {
                           download
                           target="_blank"
                           sx={{
-                            ...theme.typography.miniBody,
+                            ...theme.typography.body2,
                             fontFamily: "Poppins,sans-serif",
                             fontWeight: 500,
                             boxShadow: "none",
@@ -432,7 +437,7 @@ export default function ApplicationStatusTable({ data }: any) {
                           <Box
                             key={k}
                             sx={{
-                              ...theme.typography.miniBody,
+                              ...theme.typography.body2,
                               fontFamily: "Poppins,sans-serif",
                               fontWeight: 400,
                               display: "flex",
@@ -443,6 +448,8 @@ export default function ApplicationStatusTable({ data }: any) {
                               px: 1.5,
                               py: 0.5,
                               color: "#000000CC",
+                              justifyContent: "center",
+                              lineHeight: 1.1,
                             }}
                           >
                             <span>{chip.icon}</span>
@@ -455,7 +462,7 @@ export default function ApplicationStatusTable({ data }: any) {
                         <Box key={k}>
                           <Typography
                             sx={{
-                              ...theme.typography.miniBody,
+                              ...theme.typography.body2,
                               fontFamily: "Poppins,sans-serif",
                               fontWeight: 400,
                               color: "#000000CC",
@@ -467,7 +474,7 @@ export default function ApplicationStatusTable({ data }: any) {
                           </Typography>
                           <Typography
                             sx={{
-                              ...theme.typography.miniBody,
+                              ...theme.typography.body2,
                               fontFamily: "Poppins,sans-serif",
                               fontWeight: 400,
                               color: "#000000CC",

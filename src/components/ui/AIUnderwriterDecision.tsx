@@ -89,7 +89,7 @@ export default function AIUnderwriterDecision({
 
             <Typography
               sx={{
-                ...theme.typography.miniBody,
+                ...theme.typography.body2,
                 fontFamily: "Poppins, sans-serif",
                 fontWeight: 400,
                 color: "#000000CC"
@@ -100,7 +100,7 @@ export default function AIUnderwriterDecision({
               label={`${score}%`}
               size="small"
               sx={{
-                ...theme.typography.miniBody,
+                ...theme.typography.body2,
                 fontFamily: "Poppins,sans-serif",
                 backgroundColor:
                   score < 50
@@ -145,7 +145,7 @@ export default function AIUnderwriterDecision({
           <Typography
             sx={{
               ...theme.typography.body1,
-              fontFamily: "Poppins, sans-serif",
+              fontFamily: "Poppins,sans-serif",
               fontWeight: 500,
               color: "#000",
               textAlign: "center",
@@ -179,7 +179,7 @@ export default function AIUnderwriterDecision({
                 label="Approve"
                 sx={{
                   "& .MuiFormControlLabel-label": {
-                    ...theme.typography.miniBody,
+                    ...theme.typography.body2,
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: 400,
                   },
@@ -201,7 +201,7 @@ export default function AIUnderwriterDecision({
                 label="Reject"
                 sx={{
                   "& .MuiFormControlLabel-label": {
-                    ...theme.typography.miniBody,
+                    ...theme.typography.body2,
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: 400,
                   },
@@ -227,13 +227,13 @@ export default function AIUnderwriterDecision({
               maxRows={2}
               sx={{
                 "& .MuiInputBase-input": {
-                  ...theme.typography.miniBody,
+                  ...theme.typography.body2,
                   fontFamily: "Poppins, sans-serif",
                 },
                 "& .MuiInputBase-root": {
-                  ...theme.typography.miniBody,
-                  height: "54px",
-                  maxHeight: "54px",
+                  ...theme.typography.body2,
+                  height: "64px",
+                  maxHeight: "64px",
                   padding: "6px 14px",
                   alignItems: "flex-start",
                   fontFamily: "Poppins, sans-serif",
@@ -258,7 +258,7 @@ export default function AIUnderwriterDecision({
               sx={{
                 ...theme.typography.button,
                 backgroundColor: "#2A8038",
-                color: "#070707",
+                color: "#ffffffff",
                 "&:hover": { backgroundColor: "#2a7737ff" },
                 borderRadius: "8px",
                 fontWeight: 400,

@@ -24,7 +24,6 @@ const Layout: React.FC = () => {
         sx={{
           flexGrow: 1,
           width: "100%",
-          backgroundColor: "#F5F9FF",
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-start",

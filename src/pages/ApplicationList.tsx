@@ -121,14 +121,13 @@ export default function ApplicationList() {
           border: "none",
           // ✅ Header Styles
           "& .MuiDataGrid-columnHeaders": {
-            ...theme.typography.miniBody,
+            ...theme.typography.body2,
             fontFamily: "Poppins,sans-serif",
             backgroundColor: "#C8D1D7 !important",
             color: "#000000",
             fontWeight: 600,
             height: "45px !important",
             minHeight: "40px !important",
-            borderBottom: "1px solid black",
           },
 
           "& .MuiDataGrid-columnHeaders, \
@@ -160,7 +159,7 @@ export default function ApplicationList() {
 
           // ✅ Cell text always black
           "& .MuiDataGrid-cell": {
-            ...theme.typography.miniBody,
+            ...theme.typography.body2,
             fontWeight: 400,
             fontFamily: "Poppins,sans-serif",
             display: "flex",
@@ -174,7 +173,7 @@ export default function ApplicationList() {
           },
 
           "& .MuiDataGrid-footerContainer, & .MuiTablePagination-root, & .MuiTablePagination-toolbar, & .MuiTablePagination-displayedRows, & .MuiTablePagination-selectLabel, & .MuiTablePagination-select, & .MuiTablePagination-menuItem": {
-            ...theme.typography.miniBody,
+            ...theme.typography.body2,
             fontFamily: "Poppins,sans-serif !important",
             color: "#000000 !important",
           },

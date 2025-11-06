@@ -23,11 +23,14 @@ const Layout: React.FC = () => {
         component="main"
         sx={{
           flexGrow: 1,
-          width: "100%",
+          minWidth: 0,   // ✅ prevents DataGrid from pushing layout
+          backgroundColor: "#F5F9FF",
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-start",
           alignItems: "stretch",
+          overflow: "hidden", // ✅ stop global scroll-x
+          transition: "padding-left .3s ease",
         }}
       >
         <Outlet />

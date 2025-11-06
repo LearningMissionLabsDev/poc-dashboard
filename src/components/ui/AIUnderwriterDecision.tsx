@@ -84,7 +84,7 @@ export default function AIUnderwriterDecision({
                 fontWeight: 500,
                 color: "#000",
               }}>
-              AI {verdict}
+              AI Recommendation: {verdict}
             </Typography>
 
             <Typography

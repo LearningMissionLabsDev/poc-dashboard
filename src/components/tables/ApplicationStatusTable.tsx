@@ -42,7 +42,7 @@ export default function ApplicationStatusTable({ data }: any) {
       }
     ]
   };
-  console.log(ttt)
+  // console.log(ttt)
   const zillow = property?.zillow ?? {
     area: 0,
     address: "",
@@ -54,10 +54,10 @@ export default function ApplicationStatusTable({ data }: any) {
     estimated_value: 0,
     timestamp: "",
   };
-  const aiSummary = ttt?.ai_summary ?? {
-    verdict: "Pending",
-    reason: "AI review not completed",
-    score: 0,
+  const aiSummary = {
+    verdict: data.application.verdict ?? "Pending",
+    reason: data.application.reason ?? "AI review not completed",
+    score: data.application.score ?? 0,
   };
 
   const rentCast = property?.rentCast ?? {
@@ -86,7 +86,7 @@ export default function ApplicationStatusTable({ data }: any) {
         details: [
           ...(ofac.results[0].matches ?? []).map((m: any) => ({
             label: m.matchSummary.matchFields[0].sanctionField,
-            value: ` score: ${m.score}`,
+            value: ` ---Similarity: ${m.score}`,
           })),
         ],
       },
@@ -97,13 +97,21 @@ export default function ApplicationStatusTable({ data }: any) {
         confidence:
           facta?.status === "processing"
             ? "processing"
-            : `${facta?.score}%`,
+            :  `${facta?.score}%`,
         details: [
-          ...(facta.questions ?? []).map((m: any) => ({
-            label: m.question_text,
-            value: `${m.is_correct ?? "in progress"}`,
-          })),
+          ...(facta.questions ?? []).map((q: any) => {
+            const userAnswer = q.answers.find((a: any) => a.id === q.user_answer_id);
+            const correctAnswer = q.answers.find((a: any) => a.id === q.correct_answer_id);
+
+            return {
+              label: q.question_text,
+              value: q.is_correct
+                ? `---✅ Correct: ${userAnswer?.text}`
+                : `---❌ Your answer: ${userAnswer?.text} — Correct: ${correctAnswer?.text}`
+            };
+          }),
         ],
+
       },
     ],
   };
@@ -130,7 +138,7 @@ export default function ApplicationStatusTable({ data }: any) {
       {
         icon: <Home size={28} color="#5B21B6" />,
         title: "Zillow",
-        description: zillow.statusText ?? "Unknown",
+        description: zillow.status ?? "Unknown",
         price: formatCurrency(zillow.hdpData.homeInfo.price),
         chips: [
           {
@@ -167,11 +175,14 @@ export default function ApplicationStatusTable({ data }: any) {
       {
         icon: <Building2 size={28} color="#5B21B6" />,
         title: "RentCast",
-        description: rentCast.ownerOccupied
-          ? "Owner occupied"
-          : "Not owner occupied",
+        description: rentCast?.status,
         price: formatCurrency(rentCast.price),
         chips: [
+            {
+            icon: <MapPin size={16} style={{ color: "#0369A1" }} />,
+            label: `${rentCast.formattedAddress ?? ""}, ${property.address?.city ?? ""}`,
+            sx: { backgroundColor: "#E0F2FE", color: "#0369A1" },
+          },
           {
             icon: <User size={16} style={{ color: "#1D4ED8" }} />,
             label: rentCast.owner.names[0] ?? "Unknown owner",
@@ -203,11 +214,17 @@ export default function ApplicationStatusTable({ data }: any) {
 
   const documentSection = {
     title: "Documents",
+    
     items: docs.map((doc: any) => ({
+    confidence: `${
+      doc?.status === "completed"
+        ? `${doc?.form_analysis?.[0]?.form_authenticity?.score ?? 100}%`
+        : doc?.status
+    }`,
       icon: <FileText size={28} color="#5B21B6" />,
       title: doc.type || doc.name,
       subtitle: doc.name, // plain text shown below title
-      downloadUrl: doc.download_url ?? "#",
+      downloadUrl: doc.dowmload_url ?? "#",
       description: doc.name,
 
       details: [

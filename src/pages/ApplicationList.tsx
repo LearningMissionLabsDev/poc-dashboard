@@ -39,11 +39,12 @@ export default function ApplicationList() {
       const formatted = items.map((item: any) => ({
         id: item.application_id,
         application_id: item.application_id,
-        borrower_id: item.borrower_id,
+        borrower_id: item.borrower_name,
         updated_at: item.updated_at?.replace("T", " ").replace("Z", "") ?? "—",
         verdict: item.verdict ?? "—",
         score: item.score ?? "—",
-        underwriter_id: item.underwriter_id ?? "—",
+        status: item.verdict ?? "—",
+        underwriter_id: item.underwriter_name ?? "—",
       }));
 
       setRows(formatted);
@@ -63,7 +64,7 @@ export default function ApplicationList() {
   }
 
   // ✅ Search filter
-  const filteredRows = rows.filter((row) =>
+  const filteredRows = rows?.filter((row) =>
     row.application_id.toLowerCase().includes(searchId.toLowerCase())
   );
 
@@ -78,8 +79,8 @@ export default function ApplicationList() {
       valueFormatter: (params) => formatISO(String(params ?? "")),
     },
     { field: "status", headerName: "Status", flex: 0.8 },
-    { field: "score", headerName: "Score", flex: 0.6 },
-    { field: "underwriter_id", headerName: "Reviewer", flex: 1.3 },
+    { field: "score", headerName: "Confidence Score", flex: 0.6 },
+    { field: "underwriter_id", headerName: "Underwriter", flex: 1.3 },
   ];
 
   return (

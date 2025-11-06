@@ -129,24 +129,23 @@ export default function ApplicationDetails() {
             key={label}
             label={label}
             disableRipple
-            sx={{
-              ...theme.typography.miniBody,
-              fontFamily: "Poppins,sans-serif",
-              fontWeight: 400,
-              textTransform: "none",
-              minHeight: 10,
-              py: 1,
-              px: 3,
-              borderRadius: "16px",
-              transition: "all .25s",
-              backgroundColor: tab === index ? "#4C8EF7" : "#D7E3F3",
-              color: tab === index ? "#FFFFFF" : "#334155",
-              "&.Mui-selected": { color: "#FFFFFF" },
-              "& .MuiTab-wrapper": { color: "inherit" },
-
-              "&:hover": {
-                backgroundColor: tab === index ? "#4C8EF7" : "#C9D8EB",
+           sx={{
+     ...theme.typography.miniBody,
+     fontFamily: "Poppins,sans-serif",
+     fontWeight: 500,
+     textTransform: "none",
+     minHeight: 10,
+     py: 1,
+     px: 3,
+     borderRadius: "20px",
+     border: `1px solid ${tab === index ? "#4C8EF7" : "#c3dbebff"}`,
+     backgroundColor: tab === index ? "#4C8EF7" : "#fdfdfdff",
+     color: tab === index ? "#FFFFFF" : "#000000",
+     "&:hover": {
+                backgroundColor: tab === index ? "#4C8EF7" : "#e6edf6ff",
+                borderColor: "#4C8EF7",
               },
+              transition: "all 0.2s ease-in-out",
             }}
           />
         ))}

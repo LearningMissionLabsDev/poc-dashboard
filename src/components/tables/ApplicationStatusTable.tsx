@@ -205,6 +205,25 @@ export default function ApplicationStatusTable({ data }: any) {
       },
     ],
   };
+
+  const provided = {
+    title: "Property",
+    items: [
+      {
+        icon: <Building2 size={28} color="#5B21B6" />,
+        title: "Black Knight",
+        description: "Received",
+        price: formatCurrency(property?.address.value)  ?? "-",
+        chips: [
+          {
+            icon: <MapPin size={16} style={{ color: "#0369A1" }} />,
+            label: `${rentCast.formattedAddress ?? ""}`,
+            sx: { backgroundColor: "#E0F2FE", color: "#0369A1" },
+          }
+        ],
+      },
+    ],
+  };
   function formatISO(iso: string = "") {
     if (!iso) return "N/A";
     return iso.replace("T", " ").replace("Z", "");
@@ -243,8 +262,10 @@ export default function ApplicationStatusTable({ data }: any) {
   const propertySection = {
     title: "Property",
     items: [
+      ...provided.items,
       ...zillowSection.items,
-      ...rentcastSection.items,
+      ...rentcastSection.items
+      
     ],
   };
 

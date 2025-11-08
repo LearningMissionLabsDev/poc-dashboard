@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 import type { ChatbotThemeConfig } from "../chatbotConfig";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BotMessageSquare } from "lucide-react";
 import MuiMarkdown from 'mui-markdown';
 
@@ -28,8 +28,8 @@ interface MessageProps {
 const ChatContainer = styled(Card)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  maxWidth: "500px",         // ✅ Prevent shrinking on short messages
-  minWidth: "500px",         // ✅ Enforce the width always
+  maxWidth: "500px",
+  minWidth: "500px",
   height: "85vh",
   [theme.breakpoints.down("sm")]: {
     width: "90vw",

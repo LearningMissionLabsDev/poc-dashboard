@@ -9,7 +9,6 @@ import {
   Radio,
   TextField,
 } from "@mui/material";
-import { red } from "@mui/material/colors";
 import theme from "../../theme";
 
 interface Props {
@@ -79,14 +78,29 @@ export default function AIUnderwriterDecision({
           >
             <Typography
               sx={{
-                ...theme.typography.body1,
+                ...theme.typography.h6,
                 fontFamily: "Poppins, sans-serif",
                 fontWeight: 500,
                 color: "#000",
-              }}>
-              AI Recommendation: {verdict}
+                whiteSpace: "pre-line",
+              }}
+            >
+              {`AI Recommendation\n`}
+              <Box
+                component="span"
+                sx={{
+                  color:
+                    verdict.toLowerCase() === "approved"
+                      ? "#0cc229"
+                      : verdict.toLowerCase() === "reject"
+                        ? "#f00c0c"
+                        : "#000",
+                  fontWeight: 500,
+                }}
+              >
+                {verdict}
+              </Box>
             </Typography>
-
             <Typography
               sx={{
                 ...theme.typography.body2,
@@ -138,13 +152,12 @@ export default function AIUnderwriterDecision({
             p: "24px",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
             alignItems: "center",
           }}
         >
           <Typography
             sx={{
-              ...theme.typography.body1,
+              ...theme.typography.h6,
               fontFamily: "Poppins,sans-serif",
               fontWeight: 500,
               color: "#000",
@@ -170,8 +183,8 @@ export default function AIUnderwriterDecision({
               onChange={(e) => setDecision(e.target.value as any)}
               sx={{
                 display: "flex",
-                flexDirection: "column", // ✅ separate rows
-                width: "auto", // ✅ prevent full stretch
+                flexDirection: "column",
+                width: "auto",
               }}
             >
               <FormControlLabel
@@ -190,8 +203,8 @@ export default function AIUnderwriterDecision({
                 control={
                   <Radio
                     sx={{
-                      color: "#2A8038",
-                      "&.Mui-checked": { color: "#2A8038" },
+                      color: "#0cc229",
+                      "&.Mui-checked": { color: "#0cc229" },
                     }}
                   />
                 }
@@ -212,8 +225,8 @@ export default function AIUnderwriterDecision({
                 control={
                   <Radio
                     sx={{
-                      color: red[600],
-                      "&.Mui-checked": { color: red[600] },
+                      color: "#f00c0c",
+                      "&.Mui-checked": { color: "#f00c0c" },
                     }}
                   />
                 }

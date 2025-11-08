@@ -26,11 +26,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const drawerWidth = 280;
 
-const menuItems = [
-  { label: "Application List", icon: <LayoutList size={20} />, path: "/" },
-  { label: "Analytics", icon: <ChartNoAxesCombined size={20} />, path: "/analytics" },
-];
-
 type SidebarProps = {
   open: boolean;
   onToggle: () => void;
@@ -40,6 +35,11 @@ export default function Sidebar({ open, onToggle }: SidebarProps) {
   const theme = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const menuItems = [
+    { label: "Application List", icon: <LayoutList size={open ? 20 : 23} />, path: "/" },
+    { label: "Analytics", icon: <ChartNoAxesCombined size={open ? 20 : 23} />, path: "/analytics" },
+  ];
 
   return (
     <Drawer

@@ -163,10 +163,9 @@ export default function ApplicationList() {
             ...theme.typography.body2,
             fontWeight: 400,
             fontFamily: "Poppins,sans-serif",
-            display: "flex",
-            alignItems: "center",
             minWidth: 0,
             padding: "0 8px",
+            lineHeight: "none"
           },
 
           "& .MuiDataGrid-footerContainer, & .MuiTablePagination-root, & .MuiTablePagination-toolbar, & .MuiTablePagination-displayedRows, & .MuiTablePagination-selectLabel, & .MuiTablePagination-select, & .MuiTablePagination-menuItem": {

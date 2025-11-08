@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 import type { ChatbotThemeConfig } from "../chatbotConfig";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BotMessageSquare } from "lucide-react";
 import MuiMarkdown from 'mui-markdown';
 
@@ -223,11 +223,15 @@ if (messages.length === 0) {
     try {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 20000);
+      const pathname = window.location.pathname; // e.g. "/applications/test-12345"
+      const id = pathname.split("/").pop(); // "test-12345"
+
 
       const res = await fetch(`${API_BASE}${endpoint}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ chatInput: msg }),
+
+        body: JSON.stringify({ chatInput: msg, application_id: id }),
         // signal: controller.signal,
       });
       clearTimeout(timer);

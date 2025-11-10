@@ -90,7 +90,7 @@ export default function AIUnderwriterDecision({
                 component="span"
                 sx={{
                   color:
-                    verdict.toLowerCase() === "approved"
+                    verdict.toLowerCase() === "approve"
                       ? "#0cc229"
                       : verdict.toLowerCase() === "reject"
                         ? "#f00c0c"

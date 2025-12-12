@@ -92,7 +92,7 @@ export default function AIUnderwriterDecision({
                   color:
                     verdict.toLowerCase() === "approved"
                       ? "#0cc229"
-                      : verdict.toLowerCase() === "reject"
+                      : verdict.toLowerCase() === "rejected"
                         ? "#f00c0c"
                         : "#000",
                   fontWeight: 500,

@@ -74,7 +74,7 @@ export default function Sidebar({ open, onToggle }: SidebarProps) {
           <Box display="flex" alignItems="center" py={2}>
             <Box
               component="img"
-              src="/assets/platAI_logo.png"
+              src="/assets/Logo.png"
               alt="PlatAI Logo"
               sx={{ height: 32, width: "auto" }}
             />

@@ -4,8 +4,8 @@ import {
   CircularProgress
 } from "@mui/material";
 import { useParams } from "react-router-dom";
-import ApplicationStatusTable from "../components/tables/ApplicationStatusTable";
-import ApplicationLogsTable from "../components/tables/ApplicationLogsTable";
+import ApplicationStatusTable from "../components/tables/ApplicationStatusTable/ApplicationStatusTable";
+import ApplicationLogsTable from "../components/tables/ApplicationLogsTable/ApplicationLogsTable";
 
 const API_URL = "https://uai.plat.ai/webhook";
 
